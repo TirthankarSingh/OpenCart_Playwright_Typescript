@@ -1,0 +1,16 @@
+[
+    {
+        "username":"Tirth@abc.com",
+        "password":"qwe"
+    },
+
+    {
+        "username":" ",
+        "password":"qwe"
+    },
+
+    {
+        "username":"Tirth",
+        "password":" "
+    }
+]
