@@ -20,6 +20,19 @@ on:
           - dev
 
 jobs:
+  - name: Debug API Token
+  run: |
+    node -e "
+      const token = process.env.API_TOKEN || '';
+      console.log('Exists:', !!token);
+      console.log('Length:', token.length);
+      console.log('Starts with Bearer:', token.startsWith('Bearer'));
+      console.log('First 5 codes:', [...token].slice(0,5).map(c=>c.charCodeAt(0)));
+      console.log('Last 5 codes:', [...token].slice(-5).map(c=>c.charCodeAt(0)));
+    "
+  env:
+    API_TOKEN: ${{ secrets.API_TOKEN }}
+
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 15
