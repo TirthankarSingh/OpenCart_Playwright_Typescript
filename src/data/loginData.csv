@@ -1,4 +1,4 @@
-username,password
-invalid@open.com,wrong123
-,pw1234
-pwtestbatch@open.com,
+username;password
+invalid@open.com;wrong123
+;pw1234
+pwtestbatch@open.com;

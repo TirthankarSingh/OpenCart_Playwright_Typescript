@@ -8,10 +8,10 @@ export class CsvHelper {
             columns: true, // first row as headers
             skip_empty_lines: true,
             trim: true, // trim spaces
-            delimiter: ',',
+            delimiter: ';',
         }) as Record<string, string>[];
     }
 }
 
 // let reader:CsvHelper = new CsvHelper();
-console.log(CsvHelper.readCsv('src/data/loginData.csv'));  
+// console.log(CsvHelper.readCsv('src/data/loginData.csv'));  

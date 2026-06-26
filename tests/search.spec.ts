@@ -1,6 +1,7 @@
 import { time } from 'node:console';
-import {test, expect } from '../src/fixtures/pagefixtures'
 import { CsvHelper } from '../src/utils/csvutils';
+import {test, expect } from '../src/fixtures/pagefixtures'
+
 
 test.beforeEach('Launch and navigate',async({loginPage})=>{
     await loginPage.goToLoginPage();

@@ -1,7 +1,7 @@
 import {test, expect } from '../../src/fixtures/apifixtures'
 import{UserPayload} from    '../../src/data/payload'
-import {CsvHelper} from '../../src/utils/csvutils';
 import{ENDPOINTS} from    '../../src/data/api_endpoints'
+import {CsvHelper} from '../../src/utils/csvutils';
 
 const Token = process.env.API_TOKEN!
 // console.log(Token);
