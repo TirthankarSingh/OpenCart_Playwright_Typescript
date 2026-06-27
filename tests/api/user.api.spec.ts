@@ -19,12 +19,16 @@ test('get all users',async({apiHelper})=>{
 let data = CsvHelper.readCsv('src/data/api_userData.csv')
 console.log(data);
 for(let user of data ){
-test(`Create a new user${user.user_email}`, async({apiHelper})=>{
+test(`Create a new user${user.user}`, async({apiHelper})=>{
     // let Create_User_Payload = { "name": "Tenali Ramakrishna", "email": `tirth${Date.now()}@example.com`, "gender": "male", "status": "active" }
-    const Create_User_Payload = UserPayload.createUser(user.user, user.user_email)
+    const user_email = `${user.user}_${Date.now()}@open.com`
+    const Create_User_Payload = UserPayload.createUser(user.user, user_email)
+    console.log(user.user);
+    console.log(user_email);
+    console.log(Create_User_Payload);
     let res = await apiHelper.post(ENDPOINTS.USERS,Create_User_Payload,Auth_Token)
     expect(res.status).toBe(201);
     expect(res.body.name).toBe(user.user);
-    expect(res.body.email).toBe(user.user_email);
+    expect(res.body.email).toBe(user_email);
 })
 }

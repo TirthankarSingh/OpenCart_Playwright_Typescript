@@ -12,6 +12,7 @@ export class Api_Helper{
 
     async get(endpoint:string, headers?:Record<string,string>){
         let responce = await this.request.get(`${this.baseURL}${endpoint}`,{headers:headers});
+        console.log(`${this.baseURL}${endpoint}`)
         return {
             status: responce.status(),
             body:await responce.json()
@@ -33,7 +34,7 @@ export class Api_Helper{
         let responce = await this.request.put(`${this.baseURL}${endpoint}`,
             {data:data,
             headers:headers});
-            
+        console.log(`${this.baseURL}${endpoint}`)
         return {
             status: responce.status(),
             body:await responce.json()
