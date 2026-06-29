@@ -1,0 +1,81 @@
+https://gorest.co.in
+/public/v2/users
+=================================
+URL: https://gorest.co.in/public/v2/users
+Status: 200
+Content-Type: application/json; charset=utf-8
+Body: [{"id":8528604,"name":"Akhil","email":"akhil1782748621015@abc.com","gender":"male","status":"active"},{"id":8528596,"name":"Raja","email":"Raja_1782748518234@open.com","gender":"male","status":"active"},{"id":8528595,"name":"Mohan","email":"Mohan_1782748518274@open.com","gender":"male","status":"active"},{"id":8528594,"name":"Ram","email":"Ram_1782748518251@open.com","gender":"male","status":"active"},{"id":8528593,"name":"Akhil Singh","email":"akhil1782748515973@abc.com","gender":"male","status
+=================================
+200
+[
+  {
+    id: 8528604,
+    name: 'Akhil',
+    email: 'akhil1782748621015@abc.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528596,
+    name: 'Raja',
+    email: 'Raja_1782748518234@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528595,
+    name: 'Mohan',
+    email: 'Mohan_1782748518274@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528594,
+    name: 'Ram',
+    email: 'Ram_1782748518251@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528593,
+    name: 'Akhil Singh',
+    email: 'akhil1782748515973@abc.com',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8528592,
+    name: 'Akhil',
+    email: 'akhil1782748515938@abc.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528584,
+    name: 'Mohan',
+    email: 'Mohan_1782748378947@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528580,
+    name: 'Akhil Singh',
+    email: 'akhil1782748378088@abc.com',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8528583,
+    name: 'Ram',
+    email: 'Ram_1782748378341@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528582,
+    name: 'Raja',
+    email: 'Raja_1782748378352@open.com',
+    gender: 'male',
+    status: 'active'
+  }
+]
