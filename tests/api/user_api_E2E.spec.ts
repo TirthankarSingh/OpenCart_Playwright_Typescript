@@ -20,7 +20,7 @@ async function createUser(apiHelper: any) {
     return res.body;
 }
 
-test('Create users',async({apiHelper})=>{
+test('Create users @smoke @api',async({apiHelper})=>{
     //Created User
     let UserResponce = await createUser(apiHelper)
     //Get User
@@ -49,7 +49,7 @@ test('Update User',async({apiHelper})=>{
 })
     
 //Delete user
-test('Delete User',async({apiHelper})=>{
+test('Delete User @smoke @api',async({apiHelper})=>{
     //Created User
     let UserResponce = await createUser(apiHelper)
     //Delete User

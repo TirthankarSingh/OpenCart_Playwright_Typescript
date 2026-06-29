@@ -12,7 +12,7 @@ test.beforeEach('Launch and navigate',async({page})=>{
 
 })
 
-test('login page title', async() =>{
+test('login page title @smoke', async() =>{
     
     const title = await loginPage.getLoginPageTitle();
     expect(title).toBe('Account Login');
@@ -23,7 +23,7 @@ test('forget pwd link exist test', async() =>{
     expect(await loginPage.isForgotPasswordLinkExist()).toBeTruthy()
 });
 
-test('valid login test', async() =>{
+test('valid login test @smoke', async() =>{
     await loginPage.doLogin("pwtestbatch@open.com","pw123");
     expect(await homePage.isLogoutLinkExist()).toBeTruthy()
 });

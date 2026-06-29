@@ -8,7 +8,7 @@ const Token = process.env.API_TOKEN!
 let Auth_Token = {Authorization: `Bearer ${Token}`}
 // console.log(Auth_Token);
 
-test('get all users',async({apiHelper})=>{
+test('get all users@smoke @api',async({apiHelper})=>{
     let res = await apiHelper.get('/public/v2/users',Auth_Token)
     console.log(res.status);
     console.log(res.body);
@@ -19,7 +19,7 @@ test('get all users',async({apiHelper})=>{
 let data = CsvHelper.readCsv('src/data/api_userData.csv')
 console.log(data);
 for(let user of data ){
-test(`Create a new user${user.user}`, async({apiHelper})=>{
+test(`Create a new user ${user.user} @api`, async({apiHelper})=>{
     // let Create_User_Payload = { "name": "Tenali Ramakrishna", "email": `tirth${Date.now()}@example.com`, "gender": "male", "status": "active" }
     const user_email = `${user.user}_${Date.now()}@open.com`
     const Create_User_Payload = UserPayload.createUser(user.user, user_email)

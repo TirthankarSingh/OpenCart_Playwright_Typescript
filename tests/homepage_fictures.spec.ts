@@ -1,7 +1,7 @@
 import {test, expect } from '../src/fixtures/pagefixtures'
 
 
-test.beforeEach('Launch and navigate',async({loginPage})=>{
+test.beforeEach('Launch and navigate @smoke',async({loginPage})=>{
     await loginPage.goToLoginPage();
     await loginPage.doLogin("pwtestbatch@open.com","pw123");
 
@@ -14,7 +14,7 @@ test('home page title test', async({homePage}) =>{
     expect(title).toBe('My Account');
 });
 
-test('home page hedder exist test', async({homePage}) =>{
+test('home page hedder exist test @smoke', async({homePage}) =>{
     
     const allHeaders = await homePage.getHomePageHeaders()
     console.log(allHeaders);

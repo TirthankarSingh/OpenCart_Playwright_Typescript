@@ -15,7 +15,7 @@ test('login page title', async({loginPage}) =>{
     expect(title).toBe('Account Login');
 });
 
-test('forget pwd link exist test', async({loginPage}) =>{
+test('forget pwd link exist test @smoke', async({loginPage}) =>{
 
     expect(await loginPage.isForgotPasswordLinkExist()).toBeTruthy()
 });
@@ -48,7 +48,7 @@ test (`login with wrong creadentials username: ${row.username} password: ${row.p
 //Login Invalid Data From json
 let jsonData = JsonHelper.readJson('src/data/loginData.json')
 for(let row of jsonData){
-test (`login with wrong creadentials json username: ${row.username} password: ${row.password}`, async({loginPage})=>{
+test (`login with wrong creadentials json username: ${row.username} password: ${row.password} @smoke`, async({loginPage})=>{
         await loginPage.doLogin(row.username, row.password)
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy()
     })
