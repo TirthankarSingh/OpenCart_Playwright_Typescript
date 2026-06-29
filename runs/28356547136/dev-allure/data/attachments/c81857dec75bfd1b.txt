@@ -1,0 +1,3 @@
+username:pwtestbatch@open.com
+                    password:pw123
+[ 'My Account', 'My Orders', 'My Affiliate Account', 'Newsletter' ]
