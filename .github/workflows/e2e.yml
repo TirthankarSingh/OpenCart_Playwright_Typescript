@@ -323,78 +323,78 @@ jobs:
       - name: Deploy to PROD
         run: echo "Deployed to PROD ✅"
 
-  # smoke-prod:
-  #   name: PROD - Smoke Tests
-  #   needs: deploy-prod
-  #   runs-on: ubuntu-latest
-  #   environment: Prod
-  #   steps:
-  #     - name: Checkout QA repo
-  #       uses: actions/checkout@v4
-  #       with:
-  #         repository: TirthankarSingh/OpenCart_Playwright_Typescript
+  smoke-prod:
+    name: PROD - Smoke Tests
+    needs: deploy-prod
+    runs-on: ubuntu-latest
+    environment: Prod
+    steps:
+      - name: Checkout QA repo
+        uses: actions/checkout@v4
+        with:
+          repository: naveenanimation20/OpenCartWebAPIFramework
 
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 24
-  #         cache: 'npm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
 
-  #     - name: Cache Playwright browsers
-  #       id: pw-cache-prod
-  #       uses: actions/cache@v4
-  #       with:
-  #         path: ~/.cache/ms-playwright
-  #         key: playwright-${{ hashFiles('package-lock.json') }}
+      - name: Cache Playwright browsers
+        id: pw-cache-prod
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ hashFiles('package-lock.json') }}
 
-  #     - name: Install dependencies
-  #       run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-  #     - name: Install Playwright browsers
-  #       if: steps.pw-cache-prod.outputs.cache-hit != 'true'
-  #       run: npx playwright install --with-deps chromium
+      - name: Install Playwright browsers
+        if: steps.pw-cache-prod.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
 
-  #     - name: Install Playwright OS deps only
-  #       if: steps.pw-cache-prod.outputs.cache-hit == 'true'
-  #       run: npx playwright install-deps chromium
+      - name: Install Playwright OS deps only
+        if: steps.pw-cache-prod.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
 
-  #     - name: Run Smoke Tests on PROD
-  #       run: |
-  #         echo "========================================="
-  #         echo "  Running SMOKE @smoke on PROD"
-  #         echo "========================================="
-  #         npx playwright test --project=chromium --grep @smoke
-  #       env:
-  #         ENV: prod
-  #         BASE_URL: ${{ secrets.BASE_URL }}
-  #         USERNAME: ${{ secrets.USERNAME }}
-  #         PASSWORD: ${{ secrets.PASSWORD }}
-  #         API_BASE_URL: ${{ secrets.API_BASE_URL }}
-  #         API_TOKEN: ${{ secrets.API_TOKEN }}
-  #         OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
-  #         OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
-  #         GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
+      - name: Run Smoke Tests on PROD
+        run: |
+          echo "========================================="
+          echo "  Running SMOKE @smoke on PROD"
+          echo "========================================="
+          npx playwright test --project=chromium --grep @smoke
+        env:
+          ENV: prod
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+          OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
+          OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
+          GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
 
-  #     - name: Generate Allure Report
-  #       if: always()
-  #       run: |
-  #         npm install -g allure-commandline
-  #         allure generate allure-results --clean -o allure-report
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          npm install -g allure-commandline
+          allure generate allure-results --clean -o allure-report
 
-  #     - name: Upload PROD HTML Report
-  #       if: always()
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: prod-smoke-html-report
-  #         path: reports/html-report/
-  #         retention-days: 30
+      - name: Upload PROD HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prod-smoke-html-report
+          path: reports/html-report/
+          retention-days: 30
 
-  #     - name: Upload PROD Allure Report
-  #       if: always()
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: prod-smoke-allure-report
-  #         path: allure-report/
+      - name: Upload PROD Allure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prod-smoke-allure-report
+          path: allure-report/
 
     # ═════════════════════════════════════════════════════
   # PIPELINE NOTIFICATION — GITHUB PAGES + EMAIL + SLACK
@@ -416,7 +416,7 @@ jobs:
           DEV="${{ needs.sanity-dev.result }}"
           QA="${{ needs.regression-qa.result }}"
           STAGE="${{ needs.sanity-stage.result }}"
-          # PROD="${{ needs.smoke-prod.result }}"
+          PROD="${{ needs.smoke-prod.result }}"
 
           get_emoji() { if [ "$1" = "success" ]; then echo "✅"; elif [ "$1" = "skipped" ]; then echo "⏭️"; else echo "❌"; fi; }
 
@@ -424,7 +424,7 @@ jobs:
           echo "dev=$(get_emoji $DEV)" >> $GITHUB_OUTPUT
           echo "qa=$(get_emoji $QA)" >> $GITHUB_OUTPUT
           echo "stage=$(get_emoji $STAGE)" >> $GITHUB_OUTPUT
-          # echo "prod=$(get_emoji $PROD)" >> $GITHUB_OUTPUT
+          echo "prod=$(get_emoji $PROD)" >> $GITHUB_OUTPUT
 
           if [ "$BUILD" = "success" ] && [ "$DEV" = "success" ] && [ "$QA" = "success" ] && [ "$STAGE" = "success" ] && [ "$PROD" = "success" ]; then
             echo "overall=✅ ALL PASSED" >> $GITHUB_OUTPUT
@@ -607,48 +607,48 @@ jobs:
           from: "CI Bot <${{ secrets.EMAIL_USERNAME }}>"
           html_body: file://dashboard.html
 
-      # - name: Send Slack Notification
-      #   if: always()
-      #   uses: 8398a7/action-slack@v3
-      #   with:
-      #     status: custom
-      #     custom_payload: |
-      #       {
-      #         "blocks": [
-      #           {
-      #             "type": "header",
-      #             "text": { "type": "plain_text", "text": "🎭 Playwright CI/CD Pipeline Report" }
-      #           },
-      #           {
-      #             "type": "section",
-      #             "text": { "type": "mrkdwn", "text": "*Overall: ${{ steps.status.outputs.overall }}*\n\n*Branch:* `${{ github.ref_name }}`  |  *Triggered by:* `${{ github.actor }}`" }
-      #           },
-      #           { "type": "divider" },
-      #           {
-      #             "type": "section",
-      #             "text": { "type": "mrkdwn", "text": "${{ steps.status.outputs.build }}  *Build* — Maven Unit Tests\n${{ steps.status.outputs.dev }}  *DEV* — Sanity (@smoke)\n${{ steps.status.outputs.qa }}  *QA* — Regression (All Tests)\n${{ steps.status.outputs.stage }}  *STAGE* — Sanity (@smoke)\n${{ steps.status.outputs.prod }}  *PROD* — Smoke (@smoke)" }
-      #           },
-      #           { "type": "divider" },
-      #           {
-      #             "type": "actions",
-      #             "elements": [
-      #               {
-      #                 "type": "button",
-      #                 "text": { "type": "plain_text", "text": "📊 View Reports" },
-      #                 "url": "${{ steps.status.outputs.report_url }}/index.html",
-      #                 "style": "primary"
-      #               },
-      #               {
-      #                 "type": "button",
-      #                 "text": { "type": "plain_text", "text": "📁 GitHub Actions" },
-      #                 "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-      #               }
-      #             ]
-      #           }
-      #         ]
-      #       }
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Send Slack Notification
+        if: always()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          custom_payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": { "type": "plain_text", "text": "🎭 Playwright CI/CD Pipeline Report" }
+                },
+                {
+                  "type": "section",
+                  "text": { "type": "mrkdwn", "text": "*Overall: ${{ steps.status.outputs.overall }}*\n\n*Branch:* `${{ github.ref_name }}`  |  *Triggered by:* `${{ github.actor }}`" }
+                },
+                { "type": "divider" },
+                {
+                  "type": "section",
+                  "text": { "type": "mrkdwn", "text": "${{ steps.status.outputs.build }}  *Build* — Maven Unit Tests\n${{ steps.status.outputs.dev }}  *DEV* — Sanity (@smoke)\n${{ steps.status.outputs.qa }}  *QA* — Regression (All Tests)\n${{ steps.status.outputs.stage }}  *STAGE* — Sanity (@smoke)\n${{ steps.status.outputs.prod }}  *PROD* — Smoke (@smoke)" }
+                },
+                { "type": "divider" },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": { "type": "plain_text", "text": "📊 View Reports" },
+                      "url": "${{ steps.status.outputs.report_url }}/index.html",
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "text": { "type": "plain_text", "text": "📁 GitHub Actions" },
+                      "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: Pipeline Summary
         run: |
@@ -659,6 +659,6 @@ jobs:
           echo "  DEV Sanity:      ${{ needs.sanity-dev.result }}"
           echo "  QA Regression:   ${{ needs.regression-qa.result }}"
           echo "  STAGE Sanity:    ${{ needs.sanity-stage.result }}"
-          # echo "  PROD Smoke:      ${{ needs.smoke-prod.result }}"
+          echo "  PROD Smoke:      ${{ needs.smoke-prod.result }}"
           echo "  Reports:         ${{ steps.status.outputs.report_url }}/index.html"
           echo "═══════════════════════════════════════════"        
