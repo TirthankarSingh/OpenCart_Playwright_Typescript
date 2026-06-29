@@ -1,0 +1,21 @@
+/public/v2/users
+{
+  name: 'Akhil',
+  email: 'akhil1782749528936@abc.com',
+  gender: 'male',
+  status: 'active'
+}
+=================================
+URL: https://gorest.co.in/public/v2/users
+Status: 201
+Content-Type: application/json; charset=utf-8
+Body: {"id":8528675,"name":"Akhil","email":"akhil1782749528936@abc.com","gender":"male","status":"active"}
+=================================
+https://gorest.co.in
+/public/v2/users/8528675
+=================================
+URL: https://gorest.co.in/public/v2/users/8528675
+Status: 200
+Content-Type: application/json; charset=utf-8
+Body: {"id":8528675,"name":"Akhil","email":"akhil1782749528936@abc.com","gender":"male","status":"active"}
+=================================

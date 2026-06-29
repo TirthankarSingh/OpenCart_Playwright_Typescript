@@ -1,0 +1,14 @@
+Raja
+Raja_1782749450798@open.com
+{
+  name: 'Raja',
+  email: 'Raja_1782749450798@open.com',
+  gender: 'male',
+  status: 'active'
+}
+=================================
+URL: https://gorest.co.in/public/v2/users
+Status: 201
+Content-Type: application/json; charset=utf-8
+Body: {"id":8528671,"name":"Raja","email":"Raja_1782749450798@open.com","gender":"male","status":"active"}
+=================================

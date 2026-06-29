@@ -1,0 +1,14 @@
+Mohan
+Mohan_1782749451267@open.com
+{
+  name: 'Mohan',
+  email: 'Mohan_1782749451267@open.com',
+  gender: 'male',
+  status: 'active'
+}
+=================================
+URL: https://gorest.co.in/public/v2/users
+Status: 201
+Content-Type: application/json; charset=utf-8
+Body: {"id":8528673,"name":"Mohan","email":"Mohan_1782749451267@open.com","gender":"male","status":"active"}
+=================================
