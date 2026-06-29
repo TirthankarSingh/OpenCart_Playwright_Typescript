@@ -1,0 +1,7 @@
+/public/v2/users
+{
+  name: 'Akhil',
+  email: 'akhil1782718519672@abc.com',
+  gender: 'male',
+  status: 'active'
+}
