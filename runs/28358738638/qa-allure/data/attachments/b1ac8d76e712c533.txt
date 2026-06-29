@@ -1,0 +1,14 @@
+Ram
+Ram_1782721697616@open.com
+{
+  name: 'Ram',
+  email: 'Ram_1782721697616@open.com',
+  gender: 'male',
+  status: 'active'
+}
+=================================
+URL: https://gorest.co.in/public/v2/users
+Status: 201
+Content-Type: application/json; charset=utf-8
+Body: {"id":8527658,"name":"Ram","email":"Ram_1782721697616@open.com","gender":"male","status":"active"}
+=================================
