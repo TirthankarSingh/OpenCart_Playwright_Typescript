@@ -1,0 +1,81 @@
+https://gorest.co.in
+/public/v2/users
+=================================
+URL: https://gorest.co.in/public/v2/users
+Status: 200
+Content-Type: application/json; charset=utf-8
+Body: [{"id":8528447,"name":"Akhil","email":"akhil1782747265075@abc.com","gender":"male","status":"active"},{"id":8528446,"name":"Akhil","email":"akhil1782747265152@abc.com","gender":"male","status":"active"},{"id":8528423,"name":"Akhil","email":"akhil1782746936778@abc.com","gender":"male","status":"active"},{"id":8528421,"name":"Akhil","email":"akhil1782746702605@abc.com","gender":"male","status":"active"},{"id":8528212,"name":"Som Bharadwaj","email":"bharadwaj_som@hilpert-stark.test","gender":"femal
+=================================
+200
+[
+  {
+    id: 8528447,
+    name: 'Akhil',
+    email: 'akhil1782747265075@abc.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528446,
+    name: 'Akhil',
+    email: 'akhil1782747265152@abc.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528423,
+    name: 'Akhil',
+    email: 'akhil1782746936778@abc.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528421,
+    name: 'Akhil',
+    email: 'akhil1782746702605@abc.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528212,
+    name: 'Som Bharadwaj',
+    email: 'bharadwaj_som@hilpert-stark.test',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8528211,
+    name: 'Bhoopat Verma',
+    email: 'verma_bhoopat@bartell.test',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8528210,
+    name: 'Chakrika Chaturvedi',
+    email: 'chakrika_chaturvedi@kautzer.test',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8528209,
+    name: 'Aamod Sharma',
+    email: 'sharma_aamod@howell.test',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8528208,
+    name: 'Giriraaj Ganaka',
+    email: 'ganaka_giriraaj@stoltenberg.example',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8528207,
+    name: 'Balaaditya Menon Ret.',
+    email: 'menon_ret_balaaditya@crist.example',
+    gender: 'male',
+    status: 'active'
+  }
+]
